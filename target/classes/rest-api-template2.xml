@@ -15,7 +15,11 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
         <apikit:console config-ref="rest-api-template2-config" doc:name="APIkit Console"/>
     </flow>
     <flow name="get:/hello:rest-api-template2-config">
-        <set-payload value="{&#xA;  &quot;message&quot;: &quot;hello, world!&quot;&#xA;}" doc:name="Set Payload"/>
+        <logger message="Started flow: #[flow.name]" level="INFO" doc:name="Logger"/>
+        <set-payload value="{
+  &quot;message&quot;: &quot;Hello, World!&quot;
+}" doc:name="Set Payload" mimeType="application/json"/>
+        <logger message="Completed flow: #[flow.name]" level="INFO" doc:name="Logger"/>
     </flow>
     <apikit:mapping-exception-strategy name="rest-api-template2-apiKitGlobalExceptionMapping">
         <apikit:mapping statusCode="404">
