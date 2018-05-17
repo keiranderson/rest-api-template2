@@ -1,0 +1,15 @@
+#%RAML 1.0
+baseUri: https://mocksvc.mulesoft.com/mocks/1abd7486-047e-4859-ac4c-3fa38c093fd2 # 
+title: rest-api-template2
+version: v1
+    
+/hello:
+  get:
+    description: Return hello
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/helloExample.json
+      400:
+      500:
